@@ -1,13 +1,176 @@
-*
-{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body
-{
-  font-family: sans-serif;
-  background-color: ghostwhite;
-  color: black;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+  background-color: #f3f6f6;
+  color: #1a2424;
+  line-height: 1.5;
+  min-height: 100vh;
+  padding: 2.5rem 1rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root > div {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+#heading {
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #b2d8d8;
+}
+
+#heading h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #006666;
+  letter-spacing: -0.02em;
+}
+
+#TodoForm {
+  background-color: #ffffff;
+  border: 1px solid #d9e6e6;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 102, 102, 0.05);
+}
+
+#TodoForm form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#TodoForm form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+#TodoForm p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2f4545;
+}
+
+#TodoForm input {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.95rem;
+  color: #1a2424;
+  background-color: #fafcfc;
+  border: 1px solid #c7dada;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+#TodoForm input::placeholder {
+  color: #8aa0a0;
+}
+
+#TodoForm input:focus {
+  background-color: #ffffff;
+  border-color: #008080;
+  box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.14);
+}
+
+#TodoForm button {
+  align-self: flex-start;
+  margin-top: 0.25rem;
+  padding: 0.7rem 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #008080;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#TodoForm button:hover {
+  background-color: #006666;
+}
+
+#TodoForm button:active {
+  transform: translateY(1px);
+}
+
+#outputTable {
+  background-color: #ffffff;
+  border: 1px solid #d9e6e6;
+  border-radius: 12px;
+  overflow-x: auto;
+  box-shadow: 0 2px 10px rgba(0, 102, 102, 0.05);
+}
+
+#outputTable table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+#outputTable thead {
+  background-color: #fafcfc;
+  border-bottom: 1px solid #d9e6e6;
+}
+
+#outputTable th {
+  padding: 0.85rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #006666;
+}
+
+#outputTable td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #eef4f4;
+  color: #243333;
+  vertical-align: top;
+}
+
+#outputTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+#outputTable tbody tr:hover {
+  background-color: #f6fafa;
+}
+
+#outputTable td:first-child,
+#outputTable th:first-child {
+  width: 64px;
+  color: #5c7575;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 1.25rem 0.75rem;
+  }
+
+  #TodoForm {
+    padding: 1.15rem;
+  }
+
+  #TodoForm button {
+    width: 100%;
+  }
+
+  #outputTable th,
+  #outputTable td {
+    padding: 0.7rem 0.75rem;
+    font-size: 0.88rem;
+  }
 }

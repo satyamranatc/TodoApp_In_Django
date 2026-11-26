@@ -28,8 +28,43 @@ export default function App()
     let res = await axios.post('http://localhost:8000/todo/addTodo',data);
     console.log(res.data);
     setAllTasks([...allTasks,res.data.result]);
+  }
 
-  
+  async function handleUpdate(id)
+  {
+
+    let data = {
+      "taskName":prompt("Enter Task Name"),
+      "taskDesc":prompt("Enter Task Desc")
+    }
+
+      let res = await axios.put(`http://localhost:8000/todo/updateTodo/${id}`,data);
+
+      if (res.data.status = "Success")
+      {
+        alert("Data Updated")
+        getAll()
+      }
+      else
+      {
+        alert("Something Went Wrong")
+      }
+  }
+
+  async function handleDelete(id)
+  {
+    
+      let res = await axios.delete(`http://localhost:8000/todo/deleteTodo/${id}`);
+
+      if (res.data.status = "Success")
+      {
+        alert("Data Updated")
+        getAll()
+      }
+      else
+      {
+        alert("Something Went Wrong")
+      }
   }
 
   return (
@@ -62,6 +97,7 @@ export default function App()
             <th>Id</th>
             <th>Task Name</th>
             <th>Task Desc</th>
+            <th>Task Actions</th>
           </tr>
         </thead>
 
@@ -72,6 +108,10 @@ export default function App()
                 <td>{index}</td>
                 <td>{task.taskName}</td>
                 <td>{task.taskDesc}</td>
+                <th>
+                  <button className='update-Btn' onClick={()=>handleUpdate(task.id)} >Update</button>
+                  <button className='dlt-Btn' onClick={()=>handleDelete(task.id)}  >Delete</button>
+                </th>
               </tr>
             ))  
           }
